@@ -1,5 +1,6 @@
 package com.carl;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
@@ -12,7 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @SpringBootApplication
-public class Application {
+@MapperScan(basePackages="com.carl.dao")
+public class Application{
 	/**
 	 * 工程程序入口
 	 * 
@@ -26,7 +28,7 @@ public class Application {
 
 	@RequestMapping("/")
 	String home() {
-		return "hello";
+		return "/pages/login.html";
 	}
 
 }
